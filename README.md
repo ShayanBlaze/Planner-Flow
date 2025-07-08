@@ -1,170 +1,41 @@
+# 📋 **Planner Flow: A Simple Task Manager (Node.js & Express)**
 
-<h1 align="center"><b>📋 Planner Flow</b></h1>
-<h3 align="center">A Simple Task Manager with Node.js and Express</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Node.js-14%2B-brightgreen?logo=node.js" />
-  <img src="https://img.shields.io/badge/Express.js-4.x-blue?logo=express" />
-  <img src="https://img.shields.io/badge/MongoDB-5.x-green?logo=mongodb" />
-  <img src="https://img.shields.io/badge/License-ISC-yellow" />
-</p>
+> **A lightweight, yet deeply structured task management application built with Node.js and Express — designed to showcase backend development skills and architectural understanding.**
 
 ---
 
-> **Planner Flow** is a simple yet deeply structured task manager built with Node.js, Express, and MongoDB.  
-> This project is designed for **educational and resume purposes**, focusing on code structure and backend depth.  
-> It’s a great starting point for learning RESTful APIs, error handling, and basic frontend integration.
+## 🚀 **Features**
+
+- ✅ **Full CRUD Operations:** Create, Read, Update, and Delete tasks
+- ✅ **Task Completion Status:** Mark tasks as completed or incomplete
+- ✅ **RESTful API:** Clean and well-defined API endpoints
+- ✅ **Robust Error Handling:**
+  - Custom API errors for specific HTTP statuses
+  - Asynchronous error wrapping to simplify try-catch blocks
+  - Dedicated middleware for handling 404 (Not Found) routes
+- ✅ **MongoDB Integration:** Persistent data storage using MongoDB with Mongoose ODM
+- ✅ **Basic Frontend:** Simple, vanilla JavaScript-powered web interface
+- ✅ **Environment Variable Management:** Secure handling of sensitive data with `.env`
 
 ---
 
-## ✨ Key Features
-
-- **Task Management**
-  - ➕ Create new tasks
-  - 👁️ View all tasks
-  - 🔎 View specific tasks by ID
-  - ✍️ Update task status and name
-  - 🗑️ Delete tasks
-- **Task Status:** Mark tasks as completed
-- **RESTful API:** Clean, organized endpoints
-- **Error Handling:** Custom and async error handling
-- **Database:** MongoDB for persistent storage
-- **Simple UI:** Basic frontend with HTML, CSS, and Vanilla JS
-
----
-
-## 🛠️ Technologies Used
-
-| Backend    | Frontend      | Utilities     |
-| ---------- | ------------- | ------------- |
-| Node.js    | HTML, CSS, JS | Dotenv        |
-| Express.js | Axios         | Nodemon (dev) |
-| MongoDB    |               |               |
-| Mongoose   |               |               |
-
----
-
-## 🚀 Project Setup
-
-### **Prerequisites**
-
-- **Node.js** (v14+ recommended)
-- **MongoDB** (local or [MongoDB Atlas](https://www.mongodb.com/atlas/database))
-
----
-
-### **Installation Steps**
-
-1. **Clone the project**
-
-   ```bash
-   git clone [Your Project's GitHub Link]
-   cd "Planner Flow"
-   ```
-
-   _(Or download and extract the files, then navigate to the main directory.)_
-
-2. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Configure environment variables**  
-   Create a `.env` file in the root directory (next to `app.js`) and add:
-   ```
-   MONGO_URI=your_mongodb_connection_string
-   PORT=your_desired_port_number
-   ```
-   - **MONGO_URI:** Your MongoDB connection string  
-     _Example:_  
-     `mongodb+srv://user:password@cluster.mongodb.net/TaskManagerDB?retryWrites=true&w=majority`
-   - **PORT:** Port for the server (default: 6000)
-
----
-
-### **Running the Project**
-
-- **Development Mode (with Nodemon):**
-
-  ```bash
-  npm start
-  ```
-
-  _Runs the server with auto-restart on file changes._
-
-- **Production Mode (with Node):**
-  ```bash
-  node app.js
-  ```
-
-> On successful startup, you’ll see:  
-> `server is listening on port 6000...`
-
----
-
-## 🌐 How to Use
-
-### **User Interface (Frontend)**
-
-After starting the server, open your browser and go to:  
-[http://localhost:6000/](http://localhost:6000/)  
-_(Replace `6000` with your chosen port if different.)_
-
-
-You can add, view, edit, and delete tasks via the simple web interface.
-
----
-
-### **API Endpoints**
-
-Interact with the RESTful API using tools like Postman or your own frontend.
-
-| Method | Route               | Description                    |
-| ------ | ------------------- | ------------------------------ |
-| GET    | `/api/v1/tasks`     | Retrieve all tasks             |
-| POST   | `/api/v1/tasks`     | Create a new task              |
-| GET    | `/api/v1/tasks/:id` | Retrieve a specific task by ID |
-| PATCH  | `/api/v1/tasks/:id` | Update a specific task by ID   |
-| DELETE | `/api/v1/tasks/:id` | Delete a specific task by ID   |
-
-**Example POST request to create a task:**
-
-```json
-POST /api/v1/tasks
-Content-Type: application/json
-
-{
-  "name": "Buy groceries",
-  "completed": false
-}
-```
-
----
-
-## 📂 Project Structure
+## 📁 **Project Structure**
 
 ```
 Planner Flow/
-│
-├── controllers/         # Controller logic for API requests
-│   └── tasks.js         # CRUD functions for tasks
-│
-├── db/                  # Database connection settings
+├── controllers/            # 🚦 API endpoint logic (CRUD operations for tasks)
+│   └── tasks.js
+├── db/                     # 💾 Database connection setup
 │   └── connect.js
-│
-├── errors/              # Custom error handling
+├── errors/                 # ⛔ Custom error classes and helpers
 │   └── custom-error.js
-│
-├── middleware/          # Middleware for request processing
+├── middleware/             # ⚙️ Express middleware functions (async handling, error handling, 404)
 │   ├── async.js
 │   ├── error-handler.js
 │   └── not-found.js
-│
-├── model/               # Data models
+├── model/                  # 📚 Mongoose data models
 │   └── Task.js
-│
-├── public/              # Static and frontend files
+├── public/                 # 🌐 Static frontend files (HTML, CSS, client-side JS)
 │   ├── browser-app.js
 │   ├── edit-task.js
 │   ├── favicon.ico
@@ -172,31 +43,106 @@ Planner Flow/
 │   ├── main.css
 │   ├── normalize.css
 │   └── task.html
-│
-├── routes/              # API route definitions
+├── routes/                 # 🛣️ Express route definitions for API endpoints
 │   └── tasks.js
-│
-├── .env                 # Environment variables
-├── .gitignore           # Git ignore rules
-├── app.js               # Main entry point
-├── package-lock.json
-└── package.json
+├── .env                    # 🔑 Environment variables (ignored by Git)
+├── .gitignore              # 🚫 Files/folders to exclude from Git tracking
+├── app.js                  # 🚀 Main application entry point
+├── package-lock.json       # 🔒 Exact dependency versions
+└── package.json            # 📦 Project metadata and dependencies
 ```
 
 ---
 
-## 📜 License
+## 🛠 **How It Works**
 
-This project is licensed under the **MIT License**.  
-See the LICENSE file for more details.
+1. **app.js** initializes the Express server, sets up middleware, and defines API routes
+2. **db/connect.js** establishes a MongoDB connection using Mongoose
+3. **routes/tasks.js** defines API endpoints (`/api/v1/tasks`) for HTTP methods
+4. **controllers/tasks.js** contains the core logic for each API operation
+5. **model/Task.js** defines the Mongoose schema for a Task document
+6. **middleware/async.js** wraps async controller functions for error handling
+7. **middleware/error-handler.js** centrally handles all application errors
+8. **public/** serves static HTML, CSS, and client-side JS (browser-app.js, edit-task.js) which interact with the backend API using axios
 
 ---
 
-## 🙏 Acknowledgements
+## 📦 **Installation**
 
-Thank you for checking out this project!  
-Your feedback and suggestions are always welcome.
+### **Prerequisites**
 
-<p align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="60" alt="Thank You" />
-</p>
+- **Node.js:** v14 or higher
+- **MongoDB:** Local or cloud instance (e.g., MongoDB Atlas)
+
+### **Steps**
+
+1. **Clone the project:**
+
+   ```sh
+   git clone [Your Project's GitHub Link]
+   cd "Planner Flow"
+   ```
+
+2. **Install dependencies:**
+
+   ```sh
+   npm install
+   ```
+
+3. **Configure environment variables:**  
+   Create a `.env` file in the project root and add:
+   ```
+   MONGO_URI=mongodb+srv://<YOUR_USERNAME>:<YOUR_PASSWORD>@<YOUR_CLUSTER_URL>/TaskManagerDB?retryWrites=true&w=majority
+   ```
+   - `MONGO_URI`: Your MongoDB connection string
+   - `PORT`: Server port (defaults to 6000 if not set)
+
+---
+
+## ▶️ **Run the Server**
+
+- **Production:**
+  ```sh
+  node app.js
+  ```
+- **Development (with auto-restart):**
+  ```sh
+  npm start
+  ```
+
+---
+
+## 🧪 **Demo Use Case**
+
+1. Open your browser to [http://localhost:PORT/](http://localhost:3000/)
+2. Add new tasks using the input field
+3. View, edit, or delete existing tasks from the list
+4. Navigate to `task.html?id=<taskID>` to directly edit a specific task
+
+---
+
+## 🧠 **Skills Demonstrated**
+
+- Low-level understanding of Node.js HTTP server and Express.js routing
+- Building and consuming RESTful APIs
+- Database integration with MongoDB and Mongoose
+- Effective error handling strategies
+- Middleware pattern implementation
+- Frontend-backend integration using vanilla JavaScript and Axios
+- Environment variable management
+- Modular and organized project structure
+
+---
+
+## 📍 **Author**
+
+Custom-built by **Shayan Sharifi** as a personal project for understanding the depths of Node.js and Express.  
+It serves as a foundational example of a full-stack application, focusing on backend robustness and clear architecture.
+
+> _Feel free to fork and expand it into your own task management system or use it as a learning resource!_
+
+---
+
+## ✅ **License**
+
+MIT
