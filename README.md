@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" width="120" alt="Planner Flow Logo" />
-</p>
 
 <h1 align="center"><b>📋 Planner Flow</b></h1>
 <h3 align="center">A Simple Task Manager with Node.js and Express</h3>
@@ -114,9 +111,6 @@ After starting the server, open your browser and go to:
 [http://localhost:6000/](http://localhost:6000/)  
 _(Replace `6000` with your chosen port if different.)_
 
-<p align="center">
-  <img src="https://cdn.dribbble.com/users/63407/screenshots/15187010/media/5e7e2e7e6e8e7e7e7e7e7e7e7e7e7e.png?compress=1&resize=800x600" width="60%" alt="Task Manager UI Example" />
-</p>
 
 You can add, view, edit, and delete tasks via the simple web interface.
 
